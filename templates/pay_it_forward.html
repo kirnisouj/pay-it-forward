@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Pay It Forward</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Congratulations! {{ donor }} gifted you ${{ amount }}</h1>
+        <form action="/redeem" method="post">
+            <label>Select a nonprofit:</label>
+            <select name="nonprofit" class="dropdown">
+                <option value="Step Denver">Step Denver</option>
+                <option value="Colorado Gives">Colorado Gives</option>
+            </select>
+            <button type="submit" class="btn">Redeem</button>
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Pay It Forward</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to Pay It Forward</h1>
+        <form action="/donate" method="post">
+            <button type="submit" class="btn">Donate</button>
+        </form>
+    </div>
+</body>
+</html>

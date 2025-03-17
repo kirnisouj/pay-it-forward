@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Final Thank You</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Send a Thank You Note</h1>
+        <form action="/final_thank_you" method="post">
+            <textarea name="message" required>Thank you for your generous gift!</textarea>
+            <button type="submit" class="btn">Send</button>
+        </form>
+    </div>
+</body>
+</html>
