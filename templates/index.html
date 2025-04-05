@@ -2,14 +2,55 @@
 <html>
 <head>
     <title>Pay It Forward</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style copy.css') }}">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
+    <script>
+        function startAnimation() {
+            const envelope = document.getElementById('envelope');
+            const flap = document.getElementById('flap');
+            const card = document.getElementById('card');
+
+            // Step 2: Rotate the envelope to show the back
+            gsap.to(envelope, { duration: 1, rotationY: 180, delay: 1 });
+
+            // Step 3: Open the flap and partially reveal the card
+            gsap.to(flap, { duration: 1, rotationX: -130, transformOrigin: "top center", delay: 2 });
+            gsap.to(card, { duration: 1, opacity: 1, y: -20, delay: 2.5 });
+
+            // Step 4: Slide out the full greeting card
+            gsap.to(card, { duration: 1, y: -100, delay: 3.5 });
+        }
+
+        window.onload = function () {
+            startAnimation();
+        };
+    </script>
 </head>
 <body>
     <div class="container">
-        <h1>Welcome to Pay It Forward</h1>
-        <form action="/donate" method="post">
-            <button type="submit" class="btn">Donate</button>
-        </form>
+        <div id="envelope" class="envelope">
+            <!-- Front of envelope -->
+            <div class="envelope-front">
+                <div class="recipient">Jane Doe</div>
+                <div class="stamp">✦</div>
+            </div>
+            <!-- Back of envelope -->
+            <div class="envelope-back">
+                <div id="flap" class="flap"></div>
+                <div id="card" class="card">
+                    <div class="card-content">
+                        <h2>A Gift for You to Make a Gift for Good</h2>
+                        <p>John S. from Golden CO wanted to surprise you with a $25 donation that you can give to your favorite nonprofit.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="btn-group">
+            <form action="/donate" method="post" style="display:inline;">
+                <button type="submit" class="btn">Continue</button>
+            </form>
+            <a href="/" class="btn-no-thanks">No thanks</a>
+        </div>
     </div>
 </body>
 </html>
