@@ -13,11 +13,11 @@
             // Step 2: Rotate the envelope to show the back
             gsap.to(envelope, { duration: 1, rotationY: 180, delay: 1 });
 
-            // Step 3: Open the flap and partially reveal the card
+            // Step 3: Open the flap and reveal the letter
             gsap.to(flap, { duration: 1, rotationX: -130, transformOrigin: "top center", delay: 2 });
             gsap.to(card, { duration: 1, opacity: 1, y: -20, delay: 2.5 });
 
-            // Step 4: Slide out the full greeting card
+            // Step 4: Slide out the greeting card
             gsap.to(card, { duration: 1, y: -100, delay: 3.5 });
         }
 
