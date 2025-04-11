@@ -24,9 +24,6 @@ def redeem():
 def pay_forward():
     amount = request.form.get('amount')
     return render_template('thank_you.html', allocated_to=f'Paid Forward: ${amount}', amount=amount, no_back=True)
-@app.route('/donate', methods=['POST'])
-def donate():
-    return render_template('pay_it_forward.html', donor="John S.", amount=donors["John S."], show_envelope=True, no_back=True)
 
 @app.route('/thank_you', methods=['POST'])
 def thank_you():
