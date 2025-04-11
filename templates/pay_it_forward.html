@@ -6,15 +6,25 @@
 </head>
 <body>
     <div class="container">
-        <h1>Congratulations! {{ donor }} gifted you ${{ amount }}</h1>
+       <!-- <h1>Congratulations! {{ donor }} gifted you ${{ amount }}</h1> -->
+       <div>
+            <label for="file">Step 1 of 3 </label>
+            <progress id="file" value="1" max="3">33.3% </progress>
+        </div>
+        <h1>Step-1: Select a nonprofit</h1>
+        <h3>We've carried over the nonprofit(s) you recently supported.<br> Choose one to receive this special $25 gift.</h3>
         <form action="/redeem" method="post">
-            <label>Select a nonprofit:</label>
+            <label>Select a nonprofit</label>
             <select name="nonprofit" class="dropdown">
                 <option value="Step Denver">Step Denver</option>
-                <option value="Colorado Gives">Colorado Gives</option>
+                <option value="Boys & Girls Club">Boys & Girls Club</option>
+                <option value="Food Bank of the Rockies">Food Bank of the Rockies</option>
             </select>
-            <button type="submit" class="btn">Redeem</button>
+            <button type="submit" class="btn">Continue</button>
         </form>
+
+
+
     </div>
 </body>
 </html>
