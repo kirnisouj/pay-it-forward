@@ -2,17 +2,46 @@
 <html>
 <head>
     <title>Allocate Gift</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style2.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
     <div class="container">
-        <h1>Allocate Your Gift</h1>
-        <p>You have received ${{ amount }} to allocate to {{ allocated_to }}</p>
-        <form action="/pay_forward" method="post">
-            <label>Enter amount to Pay It Forward:</label>
-            <input type="number" name="amount" required>
-            <button type="submit" class="btn">Continue</button>
-        </form>
+        <div>
+            <label for="file">Step 2 of 3 </label>
+            <progress id="file" value="2" max="3">66.6% </progress>
+        </div>
+        <h1>Step-2: Pass it On</h1>
+        <h5>Brighten someone’s day with the joy of giving. <br>Surprise a fellow Coloradan with a special gift so they can pay it forward to a nonprofit close to their heart.<br>A little generosity can spark a ripple effect.</h5>
+     
+        <div class="container">
+            <h3>Select a Donation Amount</h3>
+            <div id="donation-options">
+                <button class="donation-option" onclick="updatePayButton(5)">Give $5.00</button>
+                <button class="donation-option" onclick="updatePayButton(10)">Give $10.00</button>
+                <button class="donation-option" onclick="updatePayButton(15)">Give $15.00</button>
+                <button class="donation-option" onclick="updatePayButton(25)">Give $25.00</button>
+                <button class="donation-option" onclick="updatePayButton(50)">Give $50.00</button>
+                <input type="number" id="custom-amount" placeholder="Custom Amount" oninput="updatePayButton(this.value)">
+            </div>
+            <div id="total-amount">Total: $0.00</div>
+            <button id="pay-button" onclick="pay()">Pay $0.00</button>
+        </div>
+    
+        <script>
+            function updatePayButton(amount) {
+                if (isNaN(amount) || amount <= 0) {
+                    document.getElementById('pay-button').innerText = "Pay $0.00";
+                    document.getElementById('total-amount').innerText = "Total: $0.00";
+                } else {
+                    document.getElementById('pay-button').innerText = `Pay $${amount}`;
+                    document.getElementById('total-amount').innerText = `Total: $${amount}`;
+                }
+            }
+    
+            function pay() {
+                alert("Payment button clicked!");
+            }
+        </script>
     </div>
 </body>
 </html>
