@@ -2,7 +2,7 @@
 <html>
 <head>
     <title>Allocate Gift</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style copy.css') }}">
 </head>
 <body>
     <div class="container">
@@ -11,7 +11,7 @@
             <progress id="file" value="2" max="3">66.6% </progress>
         </div>
         <h1>Step-2: Pass it On</h1>
-        <h5>Brighten someone’s day with the joy of giving. <br>Surprise a fellow Coloradan with a special gift so they can pay it forward to a nonprofit close to their heart.<br>A little generosity can spark a ripple effect.</h5>
+        <h5>Brighten someone’s day with the joy of giving. <br>Surprise a fellow Coloradan with a special gift so they can pay it forward to a nonprofit close to their heart.</h5>
      
         <div class="container">
             <h3>Select a Donation Amount</h3>
@@ -24,7 +24,14 @@
                 <input type="number" id="custom-amount" placeholder="Custom Amount" oninput="updatePayButton(this.value)">
             </div>
             <div id="total-amount">Total: $0.00</div>
-            <button id="pay-button" onclick="pay()">Pay $0.00</button>
+            <form action="/confirm_payment" method="post">
+                <button id= "pay-button" class="donation-option">Pay</button>
+            </form>
+
+            <!-- <button id="pay-button" onclick="pay()">Pay $0.00</button> -->
+            <br>
+            <br>
+            <h5>126 other donors chose to pass it on</h5>
         </div>
     
         <script>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Confirm Payment</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style copy_new.css') }}">
+    
+</head>
+<body>
+    <div class="container">
+        <div class="payment-box">
+            <label>Payment method</label><br>
+            <select disabled>
+                <option selected>VISA XXXX-XXXX-XXXX-<b>0759</b></option>
+            </select>
+            <p>
+                5855 Wadsworth Bypass, Unit A<br>
+                Arvada, CO 80003<br>
+                USA
+            </p>
+            <button class="icon-btn">✎</button>
+        </div>
+
+        <div class="label-title">Total</div>
+        <div class="amount">$25.99</div>
+
+        <form action="/final_thank_you" method="post">
+            <input type="hidden" name="message" value="Payment of $25.99 successful!">
+            <button type="submit" class="pay-button">Pay $25.99</button>
+        </form>
+    </div>
+</body>
+</html>
