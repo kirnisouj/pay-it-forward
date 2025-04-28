@@ -25,6 +25,30 @@ def pay_forward():
     amount = request.form.get('amount')
     return render_template('thank_you.html', allocated_to=f'Paid Forward: ${amount}', amount=amount, no_back=True)
 
+@app.route('/confirm_payment', methods=['POST'])
+def confirm_payment():
+    # These could be passed from a real form or pulled from session/db
+    amount = request.form.get('amount', '25.99')
+    
+    card_type = "VISA"
+    last4 = "0759"
+    address_line1 = "5855 Wadsworth Bypass, Unit A"
+    city = "Arvada"
+    state = "CO"
+    zip_code = "80003"
+    country = "USA"
+
+    return render_template('confirm_payment.html',
+                           amount=amount,
+                           card_type=card_type,
+                           last4=last4,
+                           address_line1=address_line1,
+                           city=city,
+                           state=state,
+                           zip_code=zip_code,
+                           country=country)
+
+
 @app.route('/thank_you', methods=['POST'])
 def thank_you():
     message = request.form.get('message')
