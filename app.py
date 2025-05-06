@@ -27,7 +27,7 @@ def pay_forward():
 
 @app.route('/confirm_payment', methods=['POST'])
 def confirm_payment():
-    # These could be passed from a real form or pulled from session/db
+   
     amount = request.form.get('amount', '25.99')
     
     card_type = "VISA"
@@ -49,19 +49,16 @@ def confirm_payment():
                            country=country)
 
 
+
 @app.route('/thank_you', methods=['POST'])
 def thank_you():
     message = request.form.get('message')
-    return render_template('final_thank_you.html', message=message, no_back=True)
+    return render_template('thank_you.html', message=message, no_back=True)
 
-@app.route('/pass_along', methods=['POST'])
-def pass_along():
-    return render_template('pass_along.html', no_back=True)
-
-@app.route('/final_thank_you', methods=['POST'])
-def final_thank_you():
+@app.route('/email_confirmation', methods=['POST'])
+def email_confirmation():
     message = request.form.get('message')
-    return render_template('final_thank_you.html', message=message, no_back=True)
+    return render_template('email_confirmation.html', message=message, no_back=True)
 
 @app.route('/get_nonprofits', methods=['GET'])
 def get_nonprofits():

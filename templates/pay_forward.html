@@ -2,7 +2,7 @@
 <html>
 <head>
     <title>Allocate Gift</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style copy.css') }}">
 </head>
 <body>
     <div class="container">
@@ -12,7 +12,6 @@
         </div>
         <h1>Step-2: Pass it On</h1>
         <h5>Brighten someone’s day with the joy of giving. <br>Surprise a fellow Coloradan with a special gift so they can pay it forward to a nonprofit close to their heart.</h5>
-     
         <div class="container">
             <h3>Select a Donation Amount</h3>
             <div id="donation-options">
@@ -23,14 +22,12 @@
                 <button class="donation-option" onclick="updatePayButton(50)">Give $50.00</button>
                 <input type="number" id="custom-amount" placeholder="Custom Amount" oninput="updatePayButton(this.value)">
             </div>
+            <br>
             <div id="total-amount">Total: $0.00</div>
+            
             <form action="/confirm_payment" method="post">
                 <button id= "pay-button" class="donation-option">Pay</button>
             </form>
-
-            <!-- <button id="pay-button" onclick="pay()">Pay $0.00</button> -->
-            <br>
-            <br>
             <h5>126 other donors chose to pass it on</h5>
         </div>
     
@@ -43,10 +40,6 @@
                     document.getElementById('pay-button').innerText = `Pay $${amount}`;
                     document.getElementById('total-amount').innerText = `Total: $${amount}`;
                 }
-            }
-    
-            function pay() {
-                alert("Payment button clicked!");
             }
         </script>
     </div>

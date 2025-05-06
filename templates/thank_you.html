@@ -2,12 +2,28 @@
 <html>
 <head>
     <title>Thank You</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style copy.css') }}">
 </head>
 <body>
     <div class="container">
-        <h1>Thank You!</h1>
-        <p>Your gift was allocated to {{ allocated_to }}.</p>
+    
+        <div>
+            <label for="file">Step 3 of 3 </label>
+            <progress id="file" value="3" max="3">100% </progress>
+        </div>
+        <h1>Step-3: Thank you note</h1>
+        <p>"Thank you John for your generous gift. I was able to give a little more to my favorite nonprofit because of your act of kindness. You've also inspired me to pay it forward!  
+            <br>
+            <br>~ Sincerely Jane, Colorado Springs" 
+        </p>
+        <div class="btn-group">
+           
+            <form action="/email_confirmation" method="post">
+                <button type="submit" class="btn">Send Email</button>
+            </form>
+            <a href="/" class="btn-no-thanks">Skip</a>
+        </div>
+        
     </div>
 </body>
 </html>
